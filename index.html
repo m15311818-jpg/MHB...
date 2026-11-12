@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080b12">
+  <title>MHB | تجربة أمن سيبراني تجريبية</title>
+  <meta name="description" content="تجربة تفاعلية خيالية من MHB للتعريف بتصميم المواقع والتطبيقات والحلول الرقمية.">
+  <style>
+    :root{--bg:#070a11;--panel:#101725;--red:#ff263d;--white:#f7f9ff;--blue:#12a8ff;--muted:#aab5c8}
+    *{box-sizing:border-box}
+    body{margin:0;min-height:100vh;background:radial-gradient(circle at 50% 20%,#18253b 0,#080d17 45%,#05070c 100%);color:var(--white);font-family:Tahoma,Arial,sans-serif;overflow-x:hidden}
+    .wrap{min-height:100vh;display:grid;place-items:center;padding:24px}
+    .card{width:min(900px,100%);background:rgba(12,18,30,.92);border:1px solid #27344b;border-radius:24px;padding:clamp(22px,5vw,52px);box-shadow:0 25px 90px #0009;position:relative;overflow:hidden}
+    .card:before{content:"";position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,transparent,var(--blue),var(--red),transparent)}
+    .brand{font-weight:900;font-size:clamp(32px,6vw,54px);letter-spacing:2px;text-align:center;color:#fff}
+    .brand span{color:var(--blue)}
+    .tag{text-align:center;color:var(--muted);margin:8px 0 30px;font-size:14px}
+    .eyebrow{text-align:center;color:var(--blue);font-size:13px;letter-spacing:2px;font-weight:bold}
+    h1{text-align:center;font-size:clamp(25px,5vw,42px);line-height:1.35;margin:14px 0}
+    .lead{text-align:center;color:#c5cede;line-height:1.9;max-width:650px;margin:0 auto 28px}
+    .actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+    button,.linkbtn{border:0;border-radius:12px;padding:15px 24px;font-size:16px;font-weight:bold;cursor:pointer;text-decoration:none}
+    button{background:linear-gradient(110deg,#ff263d,#b50e2b);color:white;box-shadow:0 8px 30px #ff263d40}
+    button:hover{filter:brightness(1.12);transform:translateY(-1px)}
+    button:focus-visible,a:focus-visible{outline:3px solid var(--blue);outline-offset:4px}
+    .secondary{background:#182338;color:#e8efff;box-shadow:none;border:1px solid #33445f}
+    .notice{margin:28px auto 0;padding:12px 16px;border:1px solid #33445f;border-radius:12px;color:#aebbd0;text-align:center;font-size:13px;line-height:1.8;max-width:650px}
+    .terminal{display:none;margin:28px auto 0;max-width:650px;background:#05070b;border:1px solid #5b2330;border-radius:16px;padding:20px;text-align:right}
+    .terminal.show{display:block}
+    .terminal-head{display:flex;justify-content:space-between;color:#ff6575;font-size:12px;margin-bottom:14px}
+    .line{font-family:Consolas,monospace;color:#d6e2f5;direction:ltr;text-align:left;min-height:26px;line-height:1.8}
+    .progress{height:9px;background:#222b3b;border-radius:20px;overflow:hidden;margin:14px 0}
+    .bar{height:100%;width:0;background:linear-gradient(90deg,var(--red),#fff);transition:width .35s}
+    .result{display:none;margin-top:24px;padding:24px 16px;border:1px solid #ff263d;border-radius:16px;text-align:center;background:linear-gradient(180deg,#310b14aa,#100910)}
+    .result.show{display:block;animation:appear .7s ease both}
+    .result h2{color:#ff4055;font-size:clamp(25px,5vw,40px);margin:8px 0}
+    .result p{line-height:1.9}
+    .sim{display:inline-block;border:1px solid #ff6476;color:#ff9aa5;border-radius:30px;padding:7px 13px;font-size:12px;font-weight:bold}
+    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:28px}
+    .service{padding:16px 10px;background:#121d2d;border:1px solid #263750;border-radius:14px;text-align:center}
+    .service b{display:block;margin-bottom:7px;color:#fff}
+    .service small{color:#aebbd0;line-height:1.6}
+    footer{text-align:center;color:#7e8ba1;font-size:12px;margin-top:26px}
+    body.active{background:radial-gradient(circle at 50% 30%,#4a0714 0,#160710 42%,#05070c 100%)}
+    body.active .card{border-color:#852238;box-shadow:0 0 55px #ff263d22,0 25px 90px #0009}
+    @keyframes appear{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+    @media(max-width:600px){.services{grid-template-columns:1fr}.card{border-radius:18px}.wrap{padding:12px}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="card" aria-labelledby="main-title">
+      <div class="brand">M<span>H</span>B</div>
+      <div class="tag">Smart Solutions .. Better Future</div>
+      <div class="eyebrow">INTERACTIVE CYBER EXPERIENCE</div>
+      <h1 id="main-title">هل أنت مستعد للتجربة؟</h1>
+      <p class="lead">اضغط على الزر لبدء محاكاة بصرية خيالية بأسلوب شاشات الأمن السيبراني. لا يوجد اختراق حقيقي أو وصول إلى جهازك أو ملفاتك.</p>
+      <div class="actions">
+        <button id="startBtn" type="button">ابدأ التجربة</button>
+        <button class="secondary" id="resetBtn" type="button">إعادة العرض</button>
+      </div>
+      <div class="terminal" id="terminal" aria-live="polite">
+        <div class="terminal-head"><span>● SIMULATION MODE</span><span> MHB / DEMO</span></div>
+        <div class="line" id="line1">[MHB] Initializing visual simulation...</div>
+        <div class="line" id="line2">[SYSTEM] Checking demo environment...</div>
+        <div class="line" id="line3">[NOTICE] No real system access is performed.</div>
+        <div class="progress"><div class="bar" id="bar"></div></div>
+        <div class="line" id="status">[00%] Preparing...</div>
+      </div>
+      <div class="result" id="result" aria-live="polite">
+        <span class="sim">محاكاة تجريبية — لا يوجد اختراق حقيقي</span>
+        <h2>تم اختراقك بواسطة MHB</h2>
+        <p>هذه رسالة تمثيلية ضمن تجربة تفاعلية من MHB.<br>نحن نحول الأفكار إلى مواقع وتطبيقات وحلول رقمية.</p>
+        <div class="brand" style="font-size:34px">M<span>H</span>B</div>
+        <p style="color:#aebbd0">Smart Solutions .. Better Future</p>
+      </div>
+      <div class="services">
+        <div class="service"><b>🌐 تصميم المواقع</b><small>مواقع عصرية ومتجاوبة مع كل الشاشات</small></div>
+        <div class="service"><b>📱 تطبيقات الموبايل</b><small>تطبيقات عملية بتجربة استخدام مميزة</small></div>
+        <div class="service"><b>⌘ تطوير الأنظمة</b><small>حلول برمجية مصممة حسب احتياجك</small></div>
+      </div>
+      <div class="notice">تنبيه: هذا الموقع عرض تسويقي تفاعلي فقط. لا يجمع بيانات، ولا ينفذ أوامر على جهاز الزائر، ولا يحاول الوصول إلى أي نظام.</div>
+      <footer>© 2026 MHB — Smart Solutions .. Better Future</footer>
+    </section>
+  </main>
+  <script>
+    const startBtn=document.getElementById('startBtn');
+    const resetBtn=document.getElementById('resetBtn');
+    const terminal=document.getElementById('terminal');
+    const result=document.getElementById('result');
+    const bar=document.getElementById('bar');
+    const status=document.getElementById('status');
+    let timer=null;
+    function reset(){
+      if(timer) clearInterval(timer);
+      timer=null; document.body.classList.remove('active');
+      terminal.classList.remove('show'); result.classList.remove('show');
+      bar.style.width='0%'; status.textContent='[00%] Preparing...';
+      startBtn.disabled=false; startBtn.textContent='ابدأ التجربة';
+    }
+    startBtn.addEventListener('click',()=>{
+      reset(); document.body.classList.add('active');
+      terminal.classList.add('show');
+      startBtn.disabled=true; startBtn.textContent='جاري تشغيل المحاكاة...';
+      let p=0;
+      timer=setInterval(()=>{
+        p=Math.min(100,p+10);
+        bar.style.width=p+'%';
+        status.textContent='['+String(p).padStart(2,'0')+'%] '+(p<100?'Running visual demo sequence...':'Demo sequence complete.');
+        if(p===100){
+          clearInterval(timer); timer=null;
+          result.classList.add('show');
+          startBtn.disabled=false; startBtn.textContent='إعادة تشغيل التجربة';
+        }
+      },260);
+    });
+    resetBtn.addEventListener('click',reset);
+  </script>
+</body>
+</html>
