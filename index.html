@@ -3,34 +3,36 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#000000">
-<title>MHB | SYSTEM BREACH</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#050000">
+<title>MHB | Cyber Experience</title>
+
 <style>
 *{box-sizing:border-box}
 body{
  margin:0;background:#000;color:#fff;
  font-family:Tahoma,Arial,sans-serif;
- overflow-x:hidden;min-height:100vh;
+ min-height:100vh;overflow-x:hidden;
 }
-body:after{
- content:"";position:fixed;inset:0;pointer-events:none;
- z-index:10;
- background:repeating-linear-gradient(
- transparent 0px,transparent 3px,
- #ff001008 4px,#ff001008 5px
- );
+#bg-video{
+ position:fixed;inset:0;width:100%;height:100%;
+ object-fit:cover;z-index:0;
 }
-#flash{
- position:fixed;inset:0;background:#ff001a;
- opacity:0;pointer-events:none;z-index:9;
+.video-shade{
+ position:fixed;inset:0;
+ background:rgba(15,0,0,.78);
+ z-index:1;pointer-events:none;
 }
 #matrix{
  position:fixed;inset:0;width:100%;height:100%;
- opacity:.19;z-index:0;
+ opacity:.22;z-index:2;pointer-events:none;
+}
+#flash{
+ position:fixed;inset:0;background:red;
+ opacity:0;pointer-events:none;z-index:8;
 }
 .screen{
- position:relative;z-index:2;
+ position:relative;z-index:3;
  min-height:100vh;display:flex;
  align-items:center;justify-content:center;
  padding:25px 12px;
@@ -38,71 +40,56 @@ body:after{
 .panel{
  width:min(900px,100%);
  padding:clamp(20px,5vw,45px);
- background:#050505eF;
- border:1px solid #8b0016;
- box-shadow:0 0 35px #ff001a44;
+ background:#050505d9;
+ border:1px solid #a00020;
+ box-shadow:0 0 40px #ff001a66;
  text-align:center;
- animation:panel 1s infinite alternate;
+ animation:panelGlow 1s infinite alternate;
 }
-@keyframes panel{
- to{border-color:#ff193b;box-shadow:0 0 55px #ff001a99}
+@keyframes panelGlow{
+ to{border-color:#ff1738;box-shadow:0 0 60px #ff001a}
 }
 .logo{
  font-size:58px;font-weight:1000;letter-spacing:9px;
- text-shadow:0 0 20px red;
+ text-shadow:0 0 25px red;
 }
 .logo span{color:#ff1738}
-.subtitle{
- color:#ff334e;letter-spacing:4px;
- font-size:12px;margin-top:5px;
-}
+.subtitle{color:#ff5269;letter-spacing:3px;font-size:12px}
 #headline{
- font-size:clamp(30px,7vw,66px);
- color:#ff1738;font-weight:1000;
+ font-size:clamp(30px,7vw,65px);
+ color:#ff1738;
+ text-shadow:3px 0 white,-3px 0 #850018,0 0 30px red;
+ animation:glitch .15s infinite alternate;
  margin:35px 0 15px;
- text-shadow:3px 0 #fff,-3px 0 #800010,0 0 30px red;
- animation:glitch .16s infinite alternate;
 }
 @keyframes glitch{
  0%{transform:translate(1px,0)}
  50%{transform:translate(-2px,1px)}
  100%{transform:translate(2px,-1px)}
 }
-.warning{
- color:#ff9aaa;line-height:2;
-}
+.warning{color:#ffc1ca;line-height:2}
 .alert{
- color:white;background:#57000c;
- border:1px solid red;padding:15px;
- margin:22px 0;
- font-weight:bold;
- animation:blink .6s infinite;
+ color:white;background:#60000d;
+ border:1px solid red;padding:15px;margin:22px 0;
+ font-weight:bold;animation:blink .6s infinite;
 }
-@keyframes blink{
- 50%{background:#150006;color:#ff203f}
-}
+@keyframes blink{50%{background:#160006;color:#ff203f}}
 .terminal{
- text-align:left;direction:ltr;
- background:#000;border:1px solid #8d1426;
- padding:16px;height:180px;overflow:hidden;
+ text-align:left;direction:ltr;background:#000;
+ border:1px solid #8d1426;padding:16px;
+ height:170px;overflow:hidden;
  color:#ff405b;font:13px/2 monospace;
- box-shadow:inset 0 0 20px #ff001a22;
 }
 .count{
- font-size:clamp(40px,10vw,75px);
- font-weight:bold;color:#ff1738;
+ font-size:65px;font-weight:bold;color:#ff1738;
  text-shadow:0 0 30px red;margin:12px;
 }
-.progress{
- height:10px;background:#270008;margin:18px 0;
-}
-.bar{height:100%;width:0;background:#ff1738;
- box-shadow:0 0 15px red;transition:width .5s}
+.progress{height:10px;background:#270008;margin:18px 0}
+.bar{height:100%;width:0;background:#ff1738;transition:width .5s}
 button{
  background:#ed1236;color:white;border:0;
  padding:14px 22px;border-radius:7px;
- font-size:15px;font-weight:bold;
- cursor:pointer;margin:7px;
+ font-size:15px;font-weight:bold;cursor:pointer;margin:7px;
 }
 .secondary{background:#222;border:1px solid #666}
 .services{
@@ -110,23 +97,30 @@ button{
  gap:12px;margin-top:30px;
 }
 .service{
- background:#101010;border:1px solid #61202c;
+ background:#101010eF;border:1px solid #61202c;
  padding:20px 8px;border-radius:8px;
 }
 .service b{display:block;margin-bottom:8px}
 .service small{color:#ccc;line-height:1.8}
-.footer{color:#aaa;font-size:12px;line-height:2;margin-top:25px}
+.footer{color:#ccc;font-size:12px;line-height:2;margin-top:25px}
 #final{display:none}
 @media(max-width:600px){
  .services{grid-template-columns:1fr}
  .logo{font-size:45px}
 }
 @media(prefers-reduced-motion:reduce){
- *,*:before,*:after{animation:none!important}
+ #headline,.panel,.alert{animation:none}
 }
 </style>
 </head>
+
 <body>
+
+<!-- فيديو الخلفية -->
+<video id="bg-video" autoplay muted loop playsinline>
+ <source src="./background.mp4" type="video/mp4">
+</video>
+<div class="video-shade"></div>
 
 <canvas id="matrix"></canvas>
 <div id="flash"></div>
@@ -159,20 +153,26 @@ button{
    [SYSTEM] CINEMATIC SEQUENCE STARTED<br>
   </div>
 
-  <div style="margin-top:20px;color:#aaa">العد التنازلي التجريبي</div>
+  <div style="margin-top:20px;color:#aaa">
+   العد التنازلي التجريبي
+  </div>
   <div class="count" id="count">10</div>
 
-  <div class="progress"><div class="bar" id="bar"></div></div>
+  <div class="progress">
+   <div class="bar" id="bar"></div>
+  </div>
 
   <button id="sound">🔊 تشغيل صوت الإنذار</button>
-  <button class="secondary" onclick="location.reload()">إعادة التجربة</button>
+  <button class="secondary" onclick="location.reload()">
+   إعادة التجربة
+  </button>
  </section>
 
  <section id="final">
   <h1 style="color:#ff1738">انتهت المحاكاة!</h1>
   <p class="warning">
    هذه تجربة تفاعلية من MHB.<br>
-   نحن نصنع تجارب رقمية ومواقع وتطبيقات احترافية.
+   نحن نحول الأفكار إلى حلول رقمية احترافية.
   </p>
 
   <div class="services">
@@ -193,25 +193,32 @@ button{
 
  <div class="footer">
   MHB — Smart Solutions .. Better Future<br>
-  محاكاة بصرية فقط. لا يوجد اختراق حقيقي ولا وصول إلى الجهاز أو بياناته.
+  محاكاة بصرية فقط. لا يوجد اختراق حقيقي ولا وصول إلى بيانات الجهاز.
  </div>
+
 </main>
 </div>
 
 <script>
-// خلفية أرقام متحركة
+// خلفية الأكواد المتحركة
 const canvas=document.getElementById("matrix");
 const c=canvas.getContext("2d");
 let drops=[];
+
 function resize(){
- canvas.width=innerWidth;canvas.height=innerHeight;
+ canvas.width=innerWidth;
+ canvas.height=innerHeight;
  drops=Array(Math.ceil(canvas.width/18)).fill(1);
 }
-resize();addEventListener("resize",resize);
+resize();
+addEventListener("resize",resize);
+
 function draw(){
  c.fillStyle="rgba(0,0,0,.09)";
  c.fillRect(0,0,canvas.width,canvas.height);
- c.fillStyle="#ff1738";c.font="15px monospace";
+ c.fillStyle="#ff1738";
+ c.font="15px monospace";
+
  drops.forEach((y,i)=>{
   c.fillText(Math.random()>.5?"1":"0",i*18,y*18);
   if(y*18>canvas.height&&Math.random()>.97)drops[i]=0;
@@ -221,13 +228,14 @@ function draw(){
 }
 draw();
 
-// مؤثرات الإنذار
+// ومضات الإنذار
 const flash=document.getElementById("flash");
 setInterval(()=>{
- flash.style.opacity=".22";
- setTimeout(()=>flash.style.opacity="0",100);
+ flash.style.opacity=".20";
+ setTimeout(()=>flash.style.opacity="0",120);
 },850);
 
+// رسائل الشاشة
 const terminal=document.getElementById("terminal");
 const lines=[
  "[WARNING] SECURITY BREACH SIMULATION",
@@ -239,6 +247,7 @@ const lines=[
  "[SYSTEM] NO DEVICE ACCESS"
 ];
 let line=0;
+
 setInterval(()=>{
  const d=document.createElement("div");
  d.textContent=lines[line%lines.length];
@@ -248,14 +257,13 @@ setInterval(()=>{
  line++;
 },650);
 
-// العد التنازلي التجريبي
+// العد التنازلي
 let n=10;
-const count=document.getElementById("count");
-const bar=document.getElementById("bar");
 const timer=setInterval(()=>{
  n--;
- count.textContent=n;
- bar.style.width=((10-n)*10)+"%";
+ document.getElementById("count").textContent=n;
+ document.getElementById("bar").style.width=((10-n)*10)+"%";
+
  if(n<=0){
   clearInterval(timer);
   document.getElementById("attack").style.display="none";
@@ -263,30 +271,49 @@ const timer=setInterval(()=>{
  }
 },1200);
 
-// صوت إنذار تجريبي بعد تفاعل الزائر
-let audio=null,osc=null,gain=null,lfo=null;
+// صوت الإنذار
+let audio=null;
+
 document.getElementById("sound").onclick=async()=>{
+ const btn=document.getElementById("sound");
+
+ if(audio){
+  audio.close();
+  audio=null;
+  btn.textContent="🔊 تشغيل صوت الإنذار";
+  return;
+ }
+
  try{
-  if(audio)audio.close();
   audio=new(window.AudioContext||window.webkitAudioContext)();
   await audio.resume();
-  gain=audio.createGain();gain.gain.value=.055;
+
+  const gain=audio.createGain();
+  gain.gain.value=.055;
   gain.connect(audio.destination);
-  osc=audio.createOscillator();
-  osc.type="sawtooth";osc.frequency.value=500;
-  lfo=audio.createOscillator();
+
+  const osc=audio.createOscillator();
+  const lfo=audio.createOscillator();
   const mod=audio.createGain();
-  lfo.frequency.value=1.1;mod.gain.value=300;
-  lfo.connect(mod);mod.connect(osc.frequency);
-  osc.connect(gain);osc.start();lfo.start();
-  document.getElementById("sound").textContent="إيقاف صوت الإنذار";
-  document.getElementById("sound").onclick=()=>{
-   if(audio)audio.close();
-   audio=null;
-   document.getElementById("sound").textContent="🔊 تشغيل صوت الإنذار";
-  };
- }catch(e){}
+
+  osc.type="sawtooth";
+  osc.frequency.value=500;
+  lfo.frequency.value=1.1;
+  mod.gain.value=300;
+
+  lfo.connect(mod);
+  mod.connect(osc.frequency);
+  osc.connect(gain);
+  osc.start();
+  lfo.start();
+
+  btn.textContent="إيقاف صوت الإنذار";
+ }catch(e){
+  audio=null;
+  btn.textContent="تعذر تشغيل الصوت";
+ }
 };
 </script>
+
 </body>
 </html>
