@@ -1,73 +1,223 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#08030a">
-<title>MHB | تجربة محاكاة</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080000">
+<title>MHB | Cyber Experience</title>
+
 <style>
-:root{--red:#ff1738;--white:#fff;--bg:#07070b}
 *{box-sizing:border-box}
-body{margin:0;min-height:100vh;background:var(--bg);color:#fff;font-family:Tahoma,Arial,sans-serif;display:grid;place-items:center;overflow-x:hidden}
-body::before{content:"";position:fixed;inset:0;z-index:-1;background:#07070b;animation:alarmGlow 1.8s ease-in-out infinite}
-@keyframes alarmGlow{0%,100%{background:#08060b;box-shadow:inset 0 0 8vw #ff002522}50%{background:#4a0712;box-shadow:inset 0 0 22vw #ff0025aa}}
-.panel{width:min(850px,calc(100% - 28px));margin:20px auto;padding:clamp(22px,5vw,48px);border:1px solid #ff334f;border-radius:22px;background:#090910ed;box-shadow:0 0 45px #ff173855;text-align:center;animation:panelPulse 1.8s ease-in-out infinite}
-@keyframes panelPulse{0%,100%{border-color:#8c1428;box-shadow:0 0 22px #ff173822}50%{border-color:#fff;box-shadow:0 0 48px #ff173899}}
-.brand{font-size:clamp(40px,8vw,68px);font-weight:900;letter-spacing:5px}.brand span{color:#ff304d}
-.kicker{color:#ff7285;font-size:13px;letter-spacing:2px;margin-top:8px}
-h1{font-size:clamp(28px,6vw,52px);line-height:1.4;color:#fff;text-shadow:0 0 16px #ff1738;margin:24px 0 8px;animation:textPulse 1.8s ease-in-out infinite}
-@keyframes textPulse{0%,100%{opacity:.78}50%{opacity:1;text-shadow:0 0 28px #ff1738,0 0 55px #ff1738}}
-.sub{color:#f2cbd1;line-height:1.9;margin:0 auto 22px;max-width:620px}
-button{border:0;border-radius:12px;padding:14px 22px;margin:7px;background:#f0193b;color:white;font-size:16px;font-weight:bold;cursor:pointer}
-button.secondary{background:#20202b;border:1px solid #656575}
-button:focus-visible{outline:3px solid #fff;outline-offset:3px}
-.status{margin:20px auto 0;padding:14px;border:1px solid #84283a;border-radius:12px;background:#170910;color:#ffb6c0;line-height:1.8}
-.services{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:22px}
-.service{padding:15px 8px;border:1px solid #3b2732;border-radius:12px;background:#11111a}
-.service b{display:block;margin-bottom:7px}.service small{color:#c8c0c8;line-height:1.6}
-.note{font-size:12px;color:#b8aeb8;line-height:1.8;margin-top:20px}
-@media(max-width:580px){.services{grid-template-columns:1fr}.panel{padding:24px 16px}}
-@media(prefers-reduced-motion:reduce){body::before,.panel,h1{animation:none}}
-</style></head>
+body{
+ margin:0;background:#050000;color:white;
+ font-family:Tahoma,Arial,sans-serif;
+ min-height:100vh;overflow-x:hidden;
+}
+body::before{
+ content:"";position:fixed;inset:0;z-index:-1;
+ background:#080000;
+ animation:flash 1.2s infinite;
+}
+@keyframes flash{
+ 0%,100%{background:#080000}
+ 50%{background:#65000c}
+}
+.container{
+ width:min(900px,94%);margin:35px auto;
+ padding:30px 20px;text-align:center;
+ background:#080808ed;
+ border:2px solid #ff102d;
+ border-radius:15px;
+ box-shadow:0 0 35px #ff002c;
+ animation:glow 1.2s infinite;
+}
+@keyframes glow{
+ 50%{box-shadow:0 0 60px #ff002c;border-color:white}
+}
+.brand{font-size:55px;font-weight:900;letter-spacing:7px}
+.brand span{color:#ff1738}
+.tag{color:#ff5269;letter-spacing:3px;font-size:13px}
+h1{
+ color:#ff1738;font-size:clamp(30px,6vw,55px);
+ text-shadow:0 0 20px red;
+ animation:pulse .7s infinite alternate;
+}
+@keyframes pulse{to{opacity:.45}}
+.warning{
+ color:#ffb3bd;line-height:2;
+}
+.status{
+ background:#250008;border:1px solid red;
+ padding:15px;margin:20px 0;
+ color:#ff687d;font-weight:bold;
+}
+.logs{
+ background:#020202;border:1px solid #66101e;
+ padding:15px;text-align:left;direction:ltr;
+ height:145px;overflow:hidden;
+ color:#ff334f;font:13px monospace;
+ line-height:2;
+}
+.progress{
+ height:12px;background:#28000a;
+ margin:20px 0;border-radius:20px;overflow:hidden;
+}
+.progress div{
+ height:100%;width:0;background:red;
+ box-shadow:0 0 15px red;
+ animation:loading 12s linear forwards;
+}
+@keyframes loading{to{width:100%}}
+button{
+ padding:13px 22px;margin:7px;
+ border:0;border-radius:8px;
+ background:#ed102f;color:white;
+ font-weight:bold;font-size:15px;cursor:pointer;
+}
+button.secondary{background:#24242a}
+.services{
+ display:grid;grid-template-columns:repeat(3,1fr);
+ gap:12px;margin-top:30px;
+}
+.service{
+ padding:18px 8px;background:#111;
+ border:1px solid #63202c;border-radius:10px;
+}
+.service b{display:block;margin-bottom:9px}
+.service small{color:#ccc;line-height:1.7}
+.footer{color:#aaa;font-size:12px;margin-top:25px}
+.hidden{display:none}
+@media(max-width:600px){
+ .services{grid-template-columns:1fr}
+ .container{padding:25px 14px}
+}
+</style>
+</head>
+
 <body>
-<main class="panel">
-  <div class="brand">M<span>H</span>B</div>
-  <div class="kicker">CYBER SECURITY EXPERIENCE</div>
-  <h1>تم اختراقك بواسطة MHB</h1>
-  <p class="sub">تم تفعيل وضع الإنذار التجريبي. هذه محاكاة بصرية وصوتية للتسويق فقط — لا يوجد اختراق حقيقي ولا يتم الوصول إلى جهازك أو بياناتك.</p>
-  <button id="soundBtn" type="button">تشغيل صوت الإنذار</button>
-  <button id="stopBtn" class="secondary" type="button">إيقاف الصوت</button>
-  <div class="status" aria-live="polite">⚠ SYSTEM ALERT — MHB SIMULATION ACTIVE ⚠<br>هذه تجربة تمثيلية وليست عملية اختراق حقيقية.</div>
-  <div class="services">
-    <div class="service"><b>🌐 تصميم المواقع</b><small>مواقع احترافية ومتجاوبة</small></div>
-    <div class="service"><b>📱 تطبيقات الموبايل</b><small>تطبيقات عصرية وسهلة الاستخدام</small></div>
-    <div class="service"><b>⌘ تطوير الأنظمة</b><small>حلول برمجية حسب الطلب</small></div>
+<main class="container">
+
+ <div class="brand">M<span>H</span>B</div>
+ <div class="tag">SMART SOLUTIONS .. BETTER FUTURE</div>
+
+ <section id="attack">
+  <h1>⚠ تم اختراقك بواسطة MHB ⚠</h1>
+  <p class="warning">
+   تم اكتشاف نشاط غير معتاد...<br>
+   جارٍ تشغيل محاكاة الأمن السيبراني
+  </p>
+
+  <div class="status" id="status">
+   SYSTEM BREACH SIMULATION — INITIALIZING...
   </div>
-  <div class="note">ملاحظة: المتصفحات تمنع تشغيل الصوت تلقائياً قبل تفاعل الزائر. اضغط «تشغيل صوت الإنذار» لتفعيله. تأثير الإضاءة يبدأ تلقائياً عند فتح الصفحة، وهو نبض ضوئي تدريجي وليس وميضاً سريعاً.</div>
-  <div class="note">MHB — Smart Solutions .. Better Future</div>
+
+  <div class="logs" id="logs">
+   [SYSTEM] Initializing simulation...<br>
+   [SECURITY] Scanning visual interface...<br>
+   [ALERT] Simulated security warning activated...<br>
+  </div>
+
+  <div class="progress"><div></div></div>
+
+  <button id="sound">🔊 تشغيل صوت الإنذار</button>
+  <button class="secondary" id="stop">إيقاف الصوت</button>
+ </section>
+
+ <section id="company">
+  <h2>مرحباً بك في عالم MHB</h2>
+  <p class="warning">
+   نحن نحول الأفكار إلى حلول رقمية احترافية.
+  </p>
+
+  <div class="services">
+   <div class="service">
+    <b>🌐 تصميم المواقع</b>
+    <small>مواقع عصرية ومتجاوبة مع كل الشاشات</small>
+   </div>
+   <div class="service">
+    <b>📱 تطبيقات الموبايل</b>
+    <small>تطبيقات عملية بتجربة استخدام مميزة</small>
+   </div>
+   <div class="service">
+    <b>⌘ تطوير الأنظمة</b>
+    <small>حلول برمجية مصممة حسب احتياجك</small>
+   </div>
+  </div>
+ </section>
+
+ <div class="footer">
+  MHB — Smart Solutions .. Better Future<br>
+  تجربة محاكاة بصرية فقط، لا يوجد اختراق حقيقي أو وصول إلى بيانات الجهاز.
+ </div>
 </main>
+
 <script>
-let ctx=null, osc1=null, osc2=null, gain=null, lfo=null, lfoGain=null;
-const soundBtn=document.getElementById('soundBtn');
-function stopAlarm(){
-  if(ctx){try{if(gain)gain.gain.setTargetAtTime(0,ctx.currentTime,.08);setTimeout(()=>{try{ctx.close()}catch(e){}},250)}catch(e){}}
-  ctx=osc1=osc2=gain=lfo=lfoGain=null;
-  soundBtn.textContent='تشغيل صوت الإنذار';
+const messages=[
+ "[ACCESS] Simulated access sequence started...",
+ "[NETWORK] Visual network scan running...",
+ "[SECURITY] Simulated firewall alert...",
+ "[WARNING] Unauthorized access simulation...",
+ "[SYSTEM] MHB security experience active...",
+ "[ALERT] This is a visual demonstration..."
+];
+
+let index=0;
+const logs=document.getElementById("logs");
+const status=document.getElementById("status");
+
+function addLog(){
+ const line=document.createElement("div");
+ line.textContent=messages[index%messages.length];
+ logs.appendChild(line);
+ logs.scrollTop=logs.scrollHeight;
+ index++;
+ if(logs.children.length>12)logs.removeChild(logs.firstChild);
 }
-async function startAlarm(){
-  stopAlarm();
-  const AC=window.AudioContext||window.webkitAudioContext;
-  if(!AC){soundBtn.textContent='الصوت غير مدعوم';return}
-  ctx=new AC(); await ctx.resume();
-  gain=ctx.createGain(); gain.gain.value=.0001; gain.connect(ctx.destination);
-  osc1=ctx.createOscillator(); osc2=ctx.createOscillator();
-  osc1.type='sawtooth'; osc2.type='sine'; osc1.frequency.value=660; osc2.frequency.value=440;
-  osc1.connect(gain); osc2.connect(gain);
-  lfo=ctx.createOscillator(); lfo.type='sine'; lfo.frequency.value=.65;
-  lfoGain=ctx.createGain(); lfoGain.gain.value=260; lfo.connect(lfoGain); lfoGain.connect(osc1.frequency);
-  osc1.start();osc2.start();lfo.start();
-  gain.gain.setTargetAtTime(.12,ctx.currentTime,.15);
-  soundBtn.textContent='صوت الإنذار يعمل';
-}
-soundBtn.addEventListener('click',startAlarm);
-document.getElementById('stopBtn').addEventListener('click',stopAlarm);
-</script></body></html>
+setInterval(addLog,1100);
+
+const statuses=[
+ "SYSTEM BREACH SIMULATION — ACTIVE",
+ "SECURITY ALERT — MHB",
+ "VISUAL SYSTEM SCAN — RUNNING",
+ "MHB CYBER EXPERIENCE — ACTIVATED"
+];
+let si=0;
+setInterval(()=>{
+ status.textContent=statuses[si%statuses.length];
+ si++;
+},1800);
+
+// الصوت يحتاج ضغطة بسبب قيود المتصفحات
+let audio=null,osc1=null,osc2=null,gain=null;
+
+document.getElementById("sound").onclick=async()=>{
+ try{
+  if(audio)audio.close();
+  audio=new (window.AudioContext||window.webkitAudioContext)();
+  await audio.resume();
+  gain=audio.createGain();
+  gain.gain.value=.07;
+  gain.connect(audio.destination);
+
+  osc1=audio.createOscillator();
+  osc2=audio.createOscillator();
+  osc1.type="sawtooth";
+  osc2.type="sine";
+  osc1.frequency.value=650;
+  osc2.frequency.value=440;
+  osc1.connect(gain);
+  osc2.connect(gain);
+  osc1.start();
+  osc2.start();
+  document.getElementById("sound").textContent="الإنذار يعمل";
+ }catch(e){}
+};
+
+document.getElementById("stop").onclick=()=>{
+ if(audio){audio.close();audio=null}
+ document.getElementById("sound").textContent="🔊 تشغيل صوت الإنذار";
+};
+</script>
+</body>
+</html>
